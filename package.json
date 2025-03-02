@@ -1,0 +1,22 @@
+{
+  "name": "always-in-time",
+  "version": "1.0.0",
+  "description": "...",
+  "main": "main.js",
+  "module": "module",
+  "scripts": {
+    "start": "npx electron ."
+  },
+  "keywords": ["timer", "productivity"],
+  "author": "Colle Hana",
+  "license": "MIT",
+  "packageManager": "pnpm@10.5.2",
+  "devDependencies": {
+    "electron": "^34.3.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron"
+    ]
+  }
+}
