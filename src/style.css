@@ -1,96 +1,227 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: "PoetsenOne";
+    src: url("./poetsen_one/PoetsenOne-Regular.ttf");
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/*
+--- sizing & spacing ---
+*/
+
+header {
+    padding-bottom: 1.5rem;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    padding: 1.5rem;
+}
+
+div#preset-play-container,
+div#inputs-container {
+    padding: 2rem;
+}
+
+input.number-input {
+    padding: 1rem 0;
+}
+
+button.preset-button {
+    width: 10rem;
+}
+
+main {
+    gap: 2rem;
+}
+
+div#window-option-container button {
+    font-size: 0;
+    padding: 0 1.5rem;
+}
+
+/*
+--- Fonts part ---
+*/
+
+* {
+    font-family: "PoetsenOne", Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    font-size: 2.5rem;
+    line-height: 2rem;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+input.number-input,
+span.colon-separator {
+    font-size: 5rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
+button.number-input-arrow-up,
+button.number-input-arrow-down,
+button#play-button {
+    font-size: 0;
 }
 
-.card {
-  padding: 2em;
+button.preset-button {
+    font-size: 3.5rem;
 }
 
-.read-the-docs {
-  color: #888;
+button#put-away-button::before {
+    content: "X";
+    font-size: 2.5rem;
+}
+
+button#close-button::before {
+    content: "-";
+    font-size: 2.5rem;
+}
+
+/*
+--- display flex ---
+*/
+
+.number-input-container,
+#inputs-container,
+#preset-play-container,
+header,
+button.number-input,
+main {
+    display: flex;
+}
+
+header, #preset-play-container {
+    justify-content: space-between;
+}
+
+
+#inputs-container {
+    align-items: center;
+    justify-content: center;
+}
+
+input.number-input {
+    text-align: center;
+}
+
+.number-input-container,
+main {
+    flex-direction: column;
+}
+
+/*
+--- icons ---
+*/
+
+img {
+    -webkit-user-drag: none;
+}
+
+.number-input-arrow-up img {
+    transform: rotate(180deg);
+}
+
+
+
+/*
+--- selection & cursor ---
+*/
+
+h1::selection,
+button::selection,
+img::selection,
+input::selection,
+span::selection  {
+    background-color: transparent;
+}
+
+input:focus::selection {
+    background-color: var(--secondary);
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+    cursor: pointer;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+h1 {
+    cursor: default;
+}
+
+/*
+--- Theme part
+*/
+
+:root {
+    --primary: #F26699;
+    --secondary: #FFD4DF;
+    --background-one: #CDD971;
+    --background-two: #B4C056;
+}
+
+html {
+    background-image: url("./background.svg");
+    background-size: cover;
+    background-color: var(--background-two);
+    border: 1rem solid var(--background-two);
+}
+
+div#preset-play-container,
+div#inputs-container,
+div#window-option-container {
+    background-color: var(--background-one);
+    border: 1rem solid var(--background-two);
+    border-radius: 1.5rem;
+}
+
+input, button {
+    background-color: transparent;
+}
+
+input, button {
+    border: none;
+}
+
+h1,
+input.number-input,
+button.preset-button,
+span.colon-separator,
+div#window-option-container button {
+    color: var(--primary);
+    --size: .26rem;
+    text-shadow: 
+    var(--size) var(--size) 0 var(--secondary),
+    calc( 0px - var(--size)) var(--size) 0 var(--secondary),
+    var(--size) calc( 0px - var(--size)) 0 var(--secondary),
+    calc( 0px - var(--size)) calc( 0px - var(--size)) 0 var(--secondary);
+}
+
+
+/*
+--- Working part ---
+*/
+
+div.number-input-container button {
+    opacity: 0;
+}
+
+div.number-input-container:has(*:focus-visible):not(:has(input:read-only)) button,
+div.number-input-container:hover:not(:has(input:read-only)) button {
+    opacity: 100;
+}
+
+/*
+--- inputs ---
+*/
+
+input[type="number"]::-webkit-outer-spFin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]:focus {
+    outline: none;
 }

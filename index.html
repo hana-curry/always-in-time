@@ -1,13 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Always in time</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="testing"></div>
+    <header>
+      <h1>Alway in time</h1>
+      <div id="window-option-container">
+        <button id="close-button" type="button">close</button>
+        <button id="put-away-button" type="button">put away</button>
+      </div>
+    </header>
+    <main>
+        <div id="inputs-container">
+            <div id="number-input-1" class="number-input-container">
+                <button class="number-input-arrow-up" type="button">
+                  arrow up
+                  <img src="./arrow.svg" alt="arrow up">
+                </button>
+                <input class="number-input" value="0" min="0" max="23" type="number">
+                <button class="number-input-arrow-down" type="button">
+                  arrow down
+                  <img src="./arrow.svg" alt="arrow down">
+                </button>
+            </div>
+            <span class="colon-separator">:</span>
+            <div id="number-input-2" class="number-input-container">
+                <button class="number-input-arrow-up" type="button">
+                  arrow up
+                  <img src="./arrow.svg" alt="arrow up">
+                </button>
+                <input class="number-input" value="0" min="0" max="59" type="number">
+                <button class="number-input-arrow-down" type="button">
+                  arrow down
+                  <img src="./arrow.svg" alt="arrow down">
+                </button>
+            </div>
+            <span class="colon-separator">:</span>
+            <div id="number-input-3" class="number-input-container">
+                <button class="number-input-arrow-up" type="button">
+                  arrow up
+                  <img src="./arrow.svg" alt="arrow up">
+                </button>
+                <input class="number-input" value="0" min="0" max="59" type="number">
+                <button class="number-input-arrow-down" type="button">
+                  arrow down
+                  <img src="./arrow.svg" alt="arrow down">
+                </button>
+            </div>
+        </div>
+        <div id="preset-play-container">
+            <button class="preset-button" id="preset-1" type="button">5m</button>
+            <button id="play-button" type="button">
+              play
+              <img id="play-button-img" src="./play.svg" alt="">
+            </button>
+            <button class="preset-button" id="preset-2" type="button">45m</button>
+        </div>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
